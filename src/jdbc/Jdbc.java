@@ -113,10 +113,10 @@ public class Jdbc {
         }
 
 
-        String url = "jdbc:postgresql://localhost:5432/currency";
+        String url = "jdbc:postgresql://localhost:5432/*";
         Properties parameters = new Properties();
-        parameters.put("user", "postgres");
-        parameters.put("password", "eziz12eziz");
+        parameters.put("user", "*");
+        parameters.put("password", "*");
         try {
             Connection con = DriverManager.getConnection(url, parameters);
             if (con != null) {
