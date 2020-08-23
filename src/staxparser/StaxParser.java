@@ -20,14 +20,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StaxParser {
-    public static void main(String[] args) {
+    public List<ValType> StaxParse(URL url) {
+
+        List<ValType> valTypeList = new ArrayList<>();
+        List<Valute> valuteList = new ArrayList<>();
+
         XMLInputFactory factory = XMLInputFactory.newFactory();
         try {
             XMLStreamReader reader = factory.
-                    createXMLStreamReader(new URL("https://www.cbar.az/currencies/19.06.2020.xml").openStream());
+                    createXMLStreamReader(url.openStream());
 
-             List<ValType> valTypeList = new ArrayList<>();
-             List<Valute> valuteList = new ArrayList<>();
+
              Valute tempValute = null;
              ValType tempValType = null;
              boolean isValType = false;
@@ -110,6 +113,7 @@ public class StaxParser {
             e.printStackTrace();
         }
 
+        return valTypeList;
 
     }
 }
